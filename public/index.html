@@ -1,0 +1,349 @@
+<!doctype html>
+<html>
+<head>
+    <title>Example of the Authorization Code flow with Spotify</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <style type="text/css">
+    #login, #loggedin {
+        display: none;
+    }
+    .text-overflow {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 500px;
+    }
+    .progress-label {
+        float: left;
+        margin-right: 1em;
+        font-size: 16px;
+    }
+    </style>
+
+    <!-- For Bootstrap -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+    <div id="login">
+        <h1>This is an example of the Authorization Code flow</h1>
+        <a href="/login" class="btn btn-primary">Log in with Spotify</a>
+    </div>
+    <div id="loggedin">
+        <div id="user-profile">
+        </div>
+        <div id="oauth">
+        </div>
+        <button class="btn btn-default" id="obtain-new-token">Obtain new token using the refresh token</button>
+        <div id="playlist">
+        </div>
+        <div id="tracks">
+        </div>
+    </div>
+    </div>
+
+    <script id="user-profile-template" type="text/x-handlebars-template">
+    <h1>Logged in as {{display_name}}</h1>
+    <div class="media">
+        <div class="pull-left">
+        <img class="media-object" width="150" src="{{images.0.url}}" />
+        </div>
+        <div class="media-body">
+        <dl class="dl-horizontal">
+            <dt>Display name</dt><dd class="clearfix">{{display_name}}</dd>
+            <dt>Id</dt><dd>{{id}}</dd>
+            <dt>Email</dt><dd>{{email}}</dd>
+            <dt>Spotify URI</dt><dd><a href="{{external_urls.spotify}}">{{external_urls.spotify}}</a></dd>
+            <dt>Link</dt><dd><a href="{{href}}">{{href}}</a></dd>
+            <dt>Profile Image</dt><dd class="clearfix"><a href="{{images.0.url}}">{{images.0.url}}</a></dd>
+            <dt>Country</dt><dd>{{country}}</dd>
+            <dt>Followers</dt><dd>{{followers.total}}</dd>
+        </dl>
+        </div>
+    </div>
+    </script>
+
+    <script id="oauth-template" type="text/x-handlebars-template">
+    <h2>oAuth info</h2>
+    <dl class="dl-horizontal">
+        <dt>Access token</dt><dd class="text-overflow">{{access_token}}</dd>
+        <dt>Refresh token</dt><dd class="text-overflow">{{refresh_token}}</dd>
+    </dl>
+    </script>
+
+    <script id="playlist-template" type="text/x-handlebars-template">
+    <h2>Playlist info</h2>
+    <dl class="dl-horizontal">
+        <dt>Number of playlists</dt><dd>{{total}}</dd>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Select a Playlist
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                {{#each items}}
+                <a class="dropdown-item" onclick="getTracks('{{this.tracks.href}}')">{{this.name}}</a>
+                {{/each}}
+            </div>
+        </div>
+    </dl>
+    </script>
+
+    <script id="tracks-template" type="text/x-handlebars-template">
+    <h2>Tracks info</h2>
+    <dl class="dl-horizontal">
+        <dt>Number of tracks</dt><dd>{{total}}</dd>
+        <ul class="list-group">
+            {{#printTracks items}}
+            {{items}}
+            {{/printTracks}}
+        </ul>
+    </dl>
+    </script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script>
+    (function() {
+
+        /**
+        * Obtains parameters from the hash of the URL
+        * @return Object
+        */
+        function getHashParams() {
+            var hashParams = {};
+            var e, r = /([^&;=]+)=?([^&;]*)/g,
+                q = window.location.hash.substring(1);
+            while ( e = r.exec(q)) {
+                hashParams[e[1]] = decodeURIComponent(e[2]);
+            }
+            return hashParams;
+        }
+
+        var userProfileSource = document.getElementById('user-profile-template').innerHTML,
+            userProfileTemplate = Handlebars.compile(userProfileSource),
+            userProfilePlaceholder = document.getElementById('user-profile');
+
+        var oauthSource = document.getElementById('oauth-template').innerHTML,
+            oauthTemplate = Handlebars.compile(oauthSource),
+            oauthPlaceholder = document.getElementById('oauth');
+
+        var playlistSource = document.getElementById('playlist-template').innerHTML,
+            playlistTemplate = Handlebars.compile(playlistSource),
+            playlistPlaceholder = document.getElementById('playlist'); 
+
+        var params = getHashParams();
+
+        var access_token = params.access_token,
+            refresh_token = params.refresh_token,
+            error = params.error;
+
+        if (error) {
+            alert('There was an error during the authentication');
+        } else {
+        if (access_token) {
+            // render oauth info
+            oauthPlaceholder.innerHTML = oauthTemplate({
+            access_token: access_token,
+            refresh_token: refresh_token
+            });
+
+            $.ajax({
+                url: 'https://api.spotify.com/v1/me',
+                headers: {
+                    'Authorization': 'Bearer ' + access_token
+                },
+                success: function(response) {
+                    userProfilePlaceholder.innerHTML = userProfileTemplate(response);
+
+                    $('#login').hide();
+                    $('#loggedin').show();
+                }
+            });
+
+            $.ajax({
+                url: 'https://api.spotify.com/v1/me/playlists',
+                headers: {
+                    'Authorization': 'Bearer ' + access_token
+                },
+                success: function(response) {
+                    playlistPlaceholder.innerHTML = playlistTemplate(response);
+
+                    $('#login').hide();
+                    $('#loggedin').show();
+                }
+            });
+        } else {
+            // render initial screen
+            $('#login').show();
+            $('#loggedin').hide();
+        }
+
+        document.getElementById('obtain-new-token').addEventListener('click', function() {
+            $.ajax({
+            url: '/refresh_token',
+            data: {
+                'refresh_token': refresh_token
+            }
+            }).done(function(data) {
+            access_token = data.access_token;
+            oauthPlaceholder.innerHTML = oauthTemplate({
+                access_token: access_token,
+                refresh_token: refresh_token
+            });
+            });
+        }, false);
+        }
+    })();
+
+    Handlebars.registerHelper("inc", function(value, options) {
+        return parseInt(value) + 1;
+    });
+
+    Handlebars.registerHelper("printTracks", function(items) {
+        var out = "";
+
+        for (var i=0, l=items.length; i<l; i++) {
+
+            /**
+            * Obtains parameters from the hash of the URL
+            * @return Object
+            */
+            function getHashParams() {
+                var hashParams = {};
+                var e, r = /([^&;=]+)=?([^&;]*)/g,
+                    q = window.location.hash.substring(1);
+                while ( e = r.exec(q)) {
+                    hashParams[e[1]] = decodeURIComponent(e[2]);
+                }
+                return hashParams;
+            }
+
+            var tracksSource = document.getElementById('tracks-template').innerHTML,
+                tracksTemplate = Handlebars.compile(tracksSource),
+                tracksPlaceholder = document.getElementById('tracks');   
+
+            var params = getHashParams();
+
+            var access_token = params.access_token,
+                refresh_token = params.refresh_token,
+                error = params.error;
+
+            var danceability = 0;
+            var energy = 0;
+            var valence = 0;
+            var getTrackUrl = 'https://api.spotify.com/v1/audio-features/'+items[i].track.id;
+
+            if (error) {
+                alert('There was an error during the authentication');
+            } else {
+                if (access_token) {
+
+                    $.ajax({
+                        async: false,
+                        url: getTrackUrl,
+                        headers: {
+                            'Authorization': 'Bearer ' + access_token
+                        },
+                        success: function(response) {
+                            valence = response.valence;
+                            energy = response.energy;
+                            danceability = response.danceability;
+                            console.log(valence);
+                            console.log(energy);
+                            console.log(danceability);
+
+                            $('#login').hide();
+                            $('#loggedin').show();
+                        }
+                    });
+                }
+                else {
+                    // render initial screen
+                    $('#login').show();
+                    $('#loggedin').hide();
+                }
+            }
+            out = out + "<li class=\"list-group-item\"><h3>" + items[i].track.name + " - ";
+            for (var j=0, k=items[i].track.artists.length; j<k; j++) {
+                if (j > 0) {
+                    out = out + ", ";
+                }
+                out = out + items[i].track.artists[j].name;
+            }
+            out = out + "</h3>";
+            out = out + "<h4 class=\"progress-label\">Valence</h4>";
+            out = out + "<div class=\"progress\">";
+            out = out + "<div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: " + valence*100 + "%\" aria-valuenow=\"0\" aria-valuemax=\"100\">" + valence + "</div>";
+            out = out + "</div><br>";
+            out = out + "<h4 class=\"progress-label\">Energy</h4>";
+            out = out + "<div class=\"progress\">";
+            out = out + "<div class=\"progress-bar bg-info\" role=\"progressbar\" style=\"width: " + energy*100 + "%\" aria-valuenow=\"0\" aria-valuemax=\"100\">" + energy + "</div>";
+            out = out + "</div><br>";
+            out = out + "<h4 class=\"progress-label\">Danceability</h4>";
+            out = out + "<div class=\"progress\">";
+            out = out + "<div class=\"progress-bar bg-warning\" role=\"progressbar\" style=\"width: " + danceability*100 + "%\" aria-valuenow=\"0\" aria-valuemax=\"100\">" + danceability + "</div>";
+            out = out + "</div>";
+        }
+        return out;
+    });
+    
+    function getTracks(tracksUrl) {
+
+        /**
+        * Obtains parameters from the hash of the URL
+        * @return Object
+        */
+        function getHashParams() {
+            var hashParams = {};
+            var e, r = /([^&;=]+)=?([^&;]*)/g,
+                q = window.location.hash.substring(1);
+            while ( e = r.exec(q)) {
+                hashParams[e[1]] = decodeURIComponent(e[2]);
+            }
+            return hashParams;
+        }
+
+        var tracksSource = document.getElementById('tracks-template').innerHTML,
+            tracksTemplate = Handlebars.compile(tracksSource),
+            tracksPlaceholder = document.getElementById('tracks');   
+
+        var params = getHashParams();
+
+        var access_token = params.access_token,
+            refresh_token = params.refresh_token,
+            error = params.error;
+
+        if (error) {
+            alert('There was an error during the authentication');
+        } else {
+            if (access_token) {
+
+                $.ajax({
+                    url: tracksUrl,
+                    headers: {
+                        'Authorization': 'Bearer ' + access_token
+                    },
+                    success: function(response) {
+                        tracksPlaceholder.innerHTML = tracksTemplate(response);
+
+                        $('#login').hide();
+                        $('#loggedin').show();
+                    }
+                });
+            }
+            else {
+                // render initial screen
+                $('#login').show();
+                $('#loggedin').hide();
+            }
+        }
+    }
+    </script>
+</body>
+</html>
+
