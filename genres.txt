@@ -1,0 +1,21 @@
+classical: "classical", "opera", "piano",
+miscellaneous: "ambient", "blues", "british", "children", "comedy", "disney", "gospel", "holidays", "industrial", "kids", "movies", "new-age", "show-tunes", "sleep", "soundtracks", "study", "work-out", "world-music"
+world: "anime", "bossanova", "brazil", "cantopop", "dancehall", "dub", "forro", "french", "german", "indian", "iranian", "j-dance", "j-idol", "j-pop", "j-rock", "k-pop", "latin", "latino", "malay", "mandopop", "mpb", "pagode", "philippines-opm", "reggae", "reggaeton", "salsa", "samba", "sertanejo", "ska", "spanish", "swedish",
+country: "country", "honky-tonk", "tango", "turkish",
+dance/electronic: "afrobeat", "breakbeat", "chicago-house", "chill", "club", "dance", "deep-house", "detroit-techno", "disco", "drum-and-bass", "dubstep", "edm", "electro", "electronic", "hardstyle", "house", "idm", "minimal-techno", "party", "post-dubstep", "progressive-house", "synth-pop", "techno", "trance", "trip-hop",
+hiphop: "hip-hop", 
+folk: "acoustic", "bluegrass", "folk", "singer-songwriter", "songwriter",
+jazz: "jazz",
+metal: "black-metal", "death-metal", "grindcore", "heavy-metal", "metal", "metal-misc", "metalcore",
+pop: "indie-pop", "pop", "pop-film", "power-pop", 
+r&b: "funk", "groove", "r-n-b", "soul",
+rock: "alt-rock", "alternative", "emo", "garage", "goth", "grunge", "hard-rock", "hardcore", "indie", "psych-rock","punk", "punk-rock", "rock", "rock-n-roll", "rockabilly",
+
+
+
+
+
+
+
+
+
