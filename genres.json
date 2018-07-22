@@ -47,201 +47,201 @@
     "andean": "w",
     "anime": "w",
     "anime score": "w",
-    "anti-folk": ""
-    "antiviral pop":
-    "appalachian folk":
-    "arab folk":
-    "arab pop":
-    "arabesk":
-    "argentine indie":
-    "argentine reggae":
-    "argentine rock":
-    "armenian folk":
-    "art rock":
-    "athens indie":
-    "atmospheric black metal":
-    "atmospheric post rock":
-    "atmospheric post-metal":
-    "aussietronica":
-    "austindie":
-    "australian alternative rock":
-    "australian country":
-    "australian dance":
-    "australian hip hop":
-    "australian indie":
-    "australian pop":
-    "austrian hip hop":
-    "austropop":
-    "avant-garde":
-    "avant-garde jazz":
-    "avantgarde metal":
-    "axe":
-    "azonto":
-    "bachata":
-    "baile funk":
-    "balearic":
-    "balkan brass":
-    "banda":
-    "bangla":
-    "barbershop":
-    "barnemusikk":
-    "barnmusik":
-    "baroque":
-    "baroque ensemble":
-    "basque rock":
-    "bass music":
-    "bass trip":
-    "bassline":
-    "bay area hip hop":
-    "beach music":
-    "beatdown":
-    "beats & rhymes":
-    "bebop":
-    "belgian indie":
-    "belgian rock":
-    "belly dance":
-    "belorush":
-    "bemani":
-    "benga":
-    "bhangra":
-    "big band":
-    "big beat":
-    "big room":
-    "black death":
-    "black metal":
-    "black sludge":
-    "black thrash":
-    "blackgaze":
-    "blaskapelle":
-    "bluegrass":
-    "blues":
-    "blues-rock":
-    "blues-rock guitar":
-    "bmore":
-    "bolero":
-    "boogaloo":
-    "boogie-woogie":
-    "bossa nova":
-    "bossa nova jazz":
-    "boston rock":
-    "bounce":
-    "bouncy house":
-    "bow pop":
-    "boy band":
-    "brass band":
-    "brass ensemble":
-    "brazilian composition":
-    "brazilian gospel":
-    "brazilian hip hop":
-    "brazilian indie":
-    "brazilian pop music":
-    "brazilian punk":
-    "breakbeat":
-    "breakcore":
-    "breaks":
-    "brega":
-    "breton folk":
-    "brill building pop":
-    "british alternative rock":
-    "british blues":
-    "british brass band":
-    "british dance band":
-    "british folk":
-    "british indie rock":
-    "british invasion":
-    "britpop":
-    "broadway":
-    "broken beat":
-    "brooklyn indie":
-    "brostep":
-    "brutal death metal":
-    "brutal deathcore":
-    "bubble trance":
-    "bubblegum dance":
-    "bubblegum pop":
-    "bulgarian rock":
-    "byzantine":
-    "c-pop":
-    "c64":
-    "c86":
-    "cabaret":
-    "cajun":
-    "calypso":
-    "canadian country":
-    "canadian hip hop":
-    "canadian indie":
-    "canadian metal":
-    "canadian pop":
-    "candy pop":
-    "cantautor":
-    "cante flamenco":
-    "canterbury scene":
-    "cantopop":
-    "canzone napoletana":
-    "capoeira":
-    "carnatic":
-    "catstep":
-    "caucasian folk":
-    "ccm":
-    "ceilidh":
-    "cello":
-    "celtic":
-    "celtic christmas":
-    "celtic punk":
-    "celtic rock":
-    "central asian folk":
-    "chalga":
-    "chamber pop":
-    "chanson":
-    "chanson quebecois":
-    "chaotic black metal":
-    "chaotic hardcore":
-    "charred death":
-    "chicago blues":
-    "chicago house":
-    "chicago indie":
-    "chicago soul":
-    "chicano rap":
-    "children's christmas":
-    "children's music":
-    "chilean rock":
-    "chill groove":
-    "chill lounge":
-    "chill-out":
-    "chill-out trance":
-    "chillstep":
-    "chillwave":
-    "chinese indie rock":
-    "chinese opera":
-    "chinese traditional":
-    "chip hop":
-    "chiptune":
-    "choral":
-    "choro":
-    "christian alternative rock":
-    "christian christmas":
-    "christian dance":
-    "christian hardcore":
-    "christian hip hop":
-    "christian metal":
-    "christian music":
-    "christian punk":
-    "christian rock":
-    "christmas":
-    "christmas product":
-    "cinematic dubstep":
-    "clarinet":
-    "classic afrobeat":
-    "classic belgian pop":
-    "classic chinese pop":
-    "classic colombian pop":
-    "classic czech pop":
-    "classic danish pop":
-    "classic dutch pop":
-    "classic eurovision":
-    "classic finnish pop":
-    "classic finnish rock":
-    "classic french pop":
+    "anti-folk": "co",
+    "antiviral pop": "p",
+    "appalachian folk": "co",
+    "arab folk": "w",
+    "arab pop": "w",
+    "arabesk": "w",
+    "argentine indie": "w",
+    "argentine reggae": "w",
+    "argentine rock": "w",
+    "armenian folk": "w",
+    "art rock": "r",
+    "athens indie": "w",
+    "atmospheric black metal": "me",
+    "atmospheric post rock": "ro",
+    "atmospheric post-metal": "me",
+    "aussietronica": "e",
+    "austindie": "ro",
+    "australian alternative rock": "ro",
+    "australian country": "co",
+    "australian dance": "e",
+    "australian hip hop": "h",
+    "australian indie": "ro",
+    "australian pop": "p",
+    "austrian hip hop": "w",
+    "austropop": "w",
+    "avant-garde": "mi",
+    "avant-garde jazz": "j",
+    "avantgarde metal": "me",
+    "axe": "w",
+    "azonto": "w",
+    "bachata": "w",
+    "baile funk": "w",
+    "balearic": "e",
+    "balkan brass": "w",
+    "banda": "w",
+    "bangla": "w",
+    "barbershop": "co",
+    "barnemusikk": "w",
+    "barnmusik": "w",
+    "baroque": "cl",
+    "baroque ensemble": "cl",
+    "basque rock": "w",
+    "bass music": "mi",
+    "bass trip": "mi",
+    "bassline": "mi",
+    "bay area hip hop": "h",
+    "beach music": "ro",
+    "beatdown": "me",
+    "beats & rhymes": "h",
+    "bebop": "j",
+    "belgian indie": "w",
+    "belgian rock": "w",
+    "belly dance": "w",
+    "belorush": "w",
+    "bemani": "mi",
+    "benga": "e",
+    "bhangra": "w",
+    "big band": "j",
+    "big beat": "e",
+    "big room": "e",
+    "black death": "me",
+    "black metal": "me",
+    "black sludge": "me",
+    "black thrash": "me",
+    "blackgaze": "me",
+    "blaskapelle": "w",
+    "bluegrass": "co",
+    "blues": "mi",
+    "blues-rock": "ro",
+    "blues-rock guitar": "ro",
+    "bmore": "w",
+    "bolero": "w",
+    "boogaloo": "w",
+    "boogie-woogie": "mi",
+    "bossa nova": "w",
+    "bossa nova jazz": "j",
+    "boston rock": "ro",
+    "bounce": "e",
+    "bouncy house": "e",
+    "bow pop": "mi",
+    "boy band": "p",
+    "brass band": "cl",
+    "brass ensemble": "cl",
+    "brazilian composition": "w",
+    "brazilian gospel": "w",
+    "brazilian hip hop": "w",
+    "brazilian indie": "w",
+    "brazilian pop music": "w",
+    "brazilian punk": "w",
+    "breakbeat": "e",
+    "breakcore": "e",
+    "breaks": "e",
+    "brega": "w",
+    "breton folk": "w",
+    "brill building pop": "p",
+    "british alternative rock": "ro", 
+    "british blues": "mi", 
+    "british brass band": "cl",
+    "british dance band": "e",
+    "british folk": "co",
+    "british indie rock": "ro",
+    "british invasion": "ro",
+    "britpop": "p",
+    "broadway": "p", 
+    "broken beat": "e",
+    "brooklyn indie": "ro",
+    "brostep": "e",
+    "brutal death metal": "me",
+    "brutal deathcore": "me",
+    "bubble trance": "e",
+    "bubblegum dance": "e",
+    "bubblegum pop": "p",
+    "bulgarian rock": "w",
+    "byzantine": "w",
+    "c-pop": "w",
+    "c64": "mi",
+    "c86": "mi",
+    "cabaret": "mi",
+    "cajun": "w",
+    "calypso": "w",
+    "canadian country": "co",
+    "canadian hip hop": "h",
+    "canadian indie": "ro",
+    "canadian metal": "m",
+    "canadian pop": "p",
+    "candy pop": "p",
+    "cantautor": "w", 
+    "cante flamenco": "w", 
+    "canterbury scene": "ro",
+    "cantopop": "w", 
+    "canzone napoletana": "w",
+    "capoeira": "w", 
+    "carnatic": "w", 
+    "catstep": "e", 
+    "caucasian folk": "co",
+    "ccm": "mi", 
+    "ceilidh": "w",
+    "cello": "cl",
+    "celtic": "w",
+    "celtic christmas": "mi",
+    "celtic punk": "w",
+    "celtic rock": "w",
+    "central asian folk": "w",
+    "chalga": "w",
+    "chamber pop": "p",
+    "chanson": "w",
+    "chanson quebecois": "w",
+    "chaotic black metal": "me",
+    "chaotic hardcore": "me",
+    "charred death": "me",
+    "chicago blues": "mi",
+    "chicago house": "e",
+    "chicago indie": "ro",
+    "chicago soul": "rb",
+    "chicano rap": "h",
+    "children's christmas": "mi",
+    "children's music": "mi",
+    "chilean rock": "w",
+    "chill groove": "e",
+    "chill lounge": "e",
+    "chill-out": "e",
+    "chill-out trance": "e",
+    "chillstep": "e",
+    "chillwave": "e",
+    "chinese indie rock": "w",
+    "chinese opera": "w",
+    "chinese traditional": "w",
+    "chip hop": "e",
+    "chiptune": "e",
+    "choral": "cl",
+    "choro": "w",
+    "christian alternative rock": "ro",
+    "christian christmas": "mi",
+    "christian dance": "e",
+    "christian hardcore": "ro",
+    "christian hip hop": "h",
+    "christian metal": "me",
+    "christian music": "mi",
+    "christian punk": "ro",
+    "christian rock": "ro",
+    "christmas": "mi",
+    "christmas product": "mi",
+    "cinematic dubstep": "e",
+    "clarinet": "cl",
+    "classic afrobeat": "rb",
+    "classic belgian pop": "w",
+    "classic chinese pop": "w",
+    "classic colombian pop": "w",
+    "classic czech pop": "w",
+    "classic danish pop": "w",
+    "classic dutch pop": "w",
+    "classic eurovision": "w",
+    "classic finnish pop": "w",
+    "classic finnish rock": "w",
+    "classic french pop": "w",
     "classic funk rock":
     "classic garage rock":
     "classic italian pop":
