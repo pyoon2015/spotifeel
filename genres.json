@@ -990,153 +990,153 @@
     "orchestral": "cl",
     "organic ambient": "mi",
     "orgcore": "ro",
-    "orquesta tipica":
-    "orquesta tropical":
-    "oshare kei":
-    "ostrock":
-    "outer hip hop":
-    "outlaw country":
-    "outsider":
-    "outsider house":
-    "p funk":
-    "pagan black metal":
-    "pagode":
-    "pakistani pop":
-    "permanent wave":
-    "persian pop":
-    "persian traditional":
-    "perth indie":
-    "peruvian rock":
-    "piano blues":
-    "piano rock":
-    "piedmont blues":
-    "pipe band":
-    "poetry":
-    "polish hip hop":
-    "polish indie":
-    "polish jazz":
-    "polish pop":
-    "polish punk":
-    "polish reggae":
-    "polka":
-    "polynesian pop":
-    "polyphony":
-    "pop":
-    "pop christmas":
-    "pop emo":
-    "pop house":
-    "pop punk":
-    "pop rap":
-    "pop rock":
-    "popgaze":
-    "porro":
-    "portland indie":
-    "portuguese pop":
-    "portuguese rock":
-    "post rock":
-    "post-disco":
-    "post-disco soul":
-    "post-grunge":
-    "post-hardcore":
-    "post-metal":
-    "post-post-hardcore":
-    "post-punk":
-    "power blues-rock":
-    "power electronics":
-    "power metal":
-    "power noise":
-    "power pop":
-    "power violence":
-    "power-pop punk":
-    "praise":
-    "progressive alternative":
-    "progressive bluegrass":
-    "progressive electro house":
-    "progressive house":
-    "progressive metal":
-    "progressive psytrance":
-    "progressive rock":
-    "progressive trance":
-    "progressive trance house":
-    "progressive uplifting trance":
-    "protopunk":
-    "psych gaze":
-    "psychedelic blues-rock":
-    "psychedelic rock":
-    "psychedelic trance":
-    "psychill":
-    "psychobilly":
-    "pub rock":
-    "puerto rican rock":
-    "punjabi":
-    "punk":
-    "punk blues":
-    "punk christmas":
-    "punk ska":
-    "qawwali":
-    "quebecois":
-    "quiet storm":
-    "r&b":
-    "ragga jungle":
-    "ragtime":
-    "rai":
-    "ranchera":
-    "rap":
-    "rap metal":
-    "rap metalcore":
-    "rap rock":
-    "raw black metal":
-    "re:techno":
-    "reading":
-    "rebetiko":
-    "reggae":
-    "reggae fusion":
-    "reggae rock":
-    "reggaeton":
-    "regional mexican":
-    "relaxative":
-    "remix":
-    "renaissance":
-    "retro electro":
-    "retro metal":
-    "rhythm and boogie":
-    "riddim":
-    "rio de la plata":
-    "riot grrrl":
-    "rock":
-    "rock catala":
-    "rock en espanol":
-    "rock gaucho":
-    "rock noise":
-    "rock steady":
-    "rock-and-roll":
-    "rockabilly":
-    "romanian pop":
-    "romanian rock":
-    "romantic":
-    "roots reggae":
-    "roots rock":
-    "rumba":
-    "russian alternative":
-    "russian hip hop":
-    "russian pop":
-    "russian punk":
-    "russian rock":
-    "rva indie":
-    "salsa":
-    "salsa international":
-    "samba":
-    "saxophone":
-    "schlager":
-    "schranz":
-    "scorecore":
-    "scottish rock":
-    "scratch":
-    "screamo":
-    "screamo punk":
-    "screamocore":
-    "seattle indie":
-    "sega":
+    "orquesta tipica": "w",
+    "orquesta tropical": "w",
+    "oshare kei": "w",
+    "ostrock": "w",
+    "outer hip hop": "h",
+    "outlaw country": "co",
+    "outsider": "mi",
+    "outsider house": "e",
+    "p funk": "h",
+    "pagan black metal": "me",
+    "pagode": "w",
+    "pakistani pop": "w",
+    "permanent wave": "mi",
+    "persian pop": "w",
+    "persian traditional": "w",
+    "perth indie": "ro",
+    "peruvian rock": "w",
+    "piano blues": "mi",
+    "piano rock": "ro",
+    "piedmont blues": "mi",
+    "pipe band": "mi",
+    "poetry": "mi",
+    "polish hip hop": "w",
+    "polish indie": "w",
+    "polish jazz": "w",
+    "polish pop": "w",
+    "polish punk": "w",
+    "polish reggae": "w",
+    "polka": "w",
+    "polynesian pop": "w",
+    "polyphony": "mi",
+    "pop": "p",
+    "pop christmas": "mi",
+    "pop emo": "ro",
+    "pop house": "e",
+    "pop punk": "ro",
+    "pop rap": "h",
+    "pop rock": "ro",
+    "popgaze": "ro",
+    "porro": "w",
+    "portland indie": "ro",
+    "portuguese pop": "w",
+    "portuguese rock": "w",
+    "post rock": "ro",
+    "post-disco": "e",
+    "post-disco soul": "rb",
+    "post-grunge": "ro",
+    "post-hardcore": "ro",
+    "post-metal": "me",
+    "post-post-hardcore": "ro",
+    "post-punk": "ro",
+    "power blues-rock": "ro",
+    "power electronics": "e",
+    "power metal": "me",
+    "power noise": "ro",
+    "power pop": "p",
+    "power violence": "me",
+    "power-pop punk": "ro",
+    "praise": "mi",
+    "progressive alternative": "ro",
+    "progressive bluegrass": "co",
+    "progressive electro house": "e",
+    "progressive house": "e",
+    "progressive metal": "me",
+    "progressive psytrance": "e",
+    "progressive rock": "ro",
+    "progressive trance": "e",
+    "progressive trance house": "e",
+    "progressive uplifting trance": "e",
+    "protopunk": "ro",
+    "psych gaze": "ro",
+    "psychedelic blues-rock": "ro",
+    "psychedelic rock": "ro",
+    "psychedelic trance": "e",
+    "psychill": "e",
+    "psychobilly": "ro",
+    "pub rock": "ro",
+    "puerto rican rock": "w",
+    "punjabi": "w",
+    "punk": "ro",
+    "punk blues": "mi",
+    "punk christmas": "mi",
+    "punk ska": "wo",
+    "qawwali": "wo",
+    "quebecois": "wo",
+    "quiet storm": "rb",
+    "r&b": "rb",
+    "ragga jungle": "e",
+    "ragtime": "j",
+    "rai": "w",
+    "ranchera": "w",
+    "rap": "h",
+    "rap metal": "me",
+    "rap metalcore": "me",
+    "rap rock": "ro",
+    "raw black metal": "me",
+    "re:techno": "e",
+    "reading": "mi",
+    "rebetiko": "w",
+    "reggae": "w",
+    "reggae fusion": "w",
+    "reggae rock": "ro",
+    "reggaeton": "w",
+    "regional mexican": "w",
+    "relaxative": "mi",
+    "remix": "mi",
+    "renaissance": "cl",
+    "retro electro": "e",
+    "retro metal": "me",
+    "rhythm and boogie": "mi",
+    "riddim": "w",
+    "rio de la plata": "w",
+    "riot grrrl": "ro",
+    "rock": "ro",
+    "rock catala": "w",
+    "rock en espanol": "w",
+    "rock gaucho": "w",
+    "rock noise": "ro",
+    "rock steady": "ro",
+    "rock-and-roll": "ro",
+    "rockabilly": "ro",
+    "romanian pop": "w",
+    "romanian rock": "w",
+    "romantic": "mi",
+    "roots reggae": "w",
+    "roots rock": "ro",
+    "rumba": "w",
+    "russian alternative": "w",
+    "russian hip hop": "w",
+    "russian pop": "w",
+    "russian punk": "w",
+    "russian rock": "w",
+    "rva indie": "ro", 
+    "salsa": "w",
+    "salsa international": "w",
+    "samba": "w",
+    "saxophone": "j",
+    "schlager": "w",
+    "schranz": "w",
+    "scorecore": "mi",
+    "scottish rock": "w",
+    "scratch": "mi",
+    "screamo": "ro",
+    "screamo punk": "ro", 
+    "screamocore": "ro",
+    "seattle indie": "ro",
+    "sega": 
     "serialism":
     "sertanejo":
     "sertanejo tradicional":
