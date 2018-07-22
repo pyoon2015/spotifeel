@@ -391,7 +391,7 @@
     "deep indian pop": "w",
     "deep indie pop": "p",
     "deep indie rock": "ro",
-    "deep indie singer-songwriter": "ro",
+    "deep indie singer-songwriter": "co",
     "deep italo disco": "w",
     "deep jazz fusion": "j",
     "deep jazz guitar": "j",
@@ -703,293 +703,293 @@
     "indie emo": "ro",
     "indie emo rock": "ro",
     "indie folk": "co",
-    "indie fuzzpop":
-    "indie pop":
-    "indie pop rock":
-    "indie post-punk":
-    "indie psych-pop":
-    "indie r&b":
-    "indie rock":
-    "indie shoegaze":
-    "indie singer-songwriter":
-    "indietronica":
-    "indonesian indie":
-    "indonesian pop":
-    "indorock":
-    "industrial":
-    "industrial metal":
-    "industrial rock":
-    "instrumental post rock":
-    "intelligent dance music":
-    "irish folk":
-    "irish indie":
-    "irish rock":
-    "iskelma":
-    "islamic recitation":
-    "israeli rock":
-    "italian disco":
-    "italian folk":
-    "italian hip hop":
-    "italian indie pop":
-    "italian jazz":
-    "italian pop":
-    "italian pop rock":
-    "italian progressive rock":
-    "italian punk":
-    "italo dance":
-    "j-alt":
-    "j-ambient":
-    "j-core":
-    "j-dance":
-    "j-idol":
-    "j-indie":
-    "j-metal":
-    "j-pop":
-    "j-poppunk":
-    "j-poprock":
-    "j-punk":
-    "j-rap":
-    "j-rock":
-    "j-theme":
-    "jam band":
-    "jangle pop":
-    "jangle rock":
-    "japanese jazztronica":
-    "japanese psychedelic":
-    "japanese r&b":
-    "japanese standards":
-    "japanese traditional":
-    "japanoise":
-    "jazz":
-    "jazz bass":
-    "jazz blues":
-    "jazz brass":
-    "jazz christmas":
-    "jazz funk":
-    "jazz fusion":
-    "jazz metal":
-    "jazz orchestra":
-    "jazz trio":
-    "jerk":
-    "jig and reel":
-    "judaica":
-    "jug band":
-    "juggalo":
-    "jump blues":
-    "jump up":
-    "jumpstyle":
-    "jungle":
-    "k-hop":
-    "k-indie":
-    "k-pop":
-    "k-rock":
-    "kabarett":
-    "karneval":
-    "kc indie":
-    "kindermusik":
-    "kirtan":
-    "kiwi rock":
-    "kizomba":
-    "klapa":
-    "klezmer":
-    "kompa":
-    "kraut rock":
-    "kuduro":
-    "kurdish folk":
-    "kwaito":
-    "la indie":
-    "laboratorio":
-    "laiko":
-    "latin":
-    "latin alternative":
-    "latin christian":
-    "latin christmas":
-    "latin electronica":
-    "latin hip hop":
-    "latin jazz":
-    "latin metal":
-    "latin pop":
-    "latvian pop":
-    "lds":
-    "leeds indie":
-    "levenslied":
-    "liedermacher":
-    "light music":
-    "lilith":
-    "liquid funk":
-    "lithumania":
-    "liturgical":
-    "lo star":
-    "lo-fi":
-    "louisiana blues":
-    "louisville indie":
-    "lounge":
-    "lounge house":
-    "lovers rock":
-    "lowercase":
-    "luk thung":
-    "madchester":
-    "maghreb":
-    "magyar":
-    "makossa":
-    "malagasy folk":
-    "malaysian pop":
-    "mallet":
-    "mambo":
-    "mande pop":
-    "mandopop":
-    "manele":
-    "marching band":
-    "mariachi":
-    "martial industrial":
-    "mashup":
-    "math pop":
-    "math rock":
-    "mathcore":
-    "mbalax":
-    "medieval":
-    "medieval rock":
-    "meditation":
-    "melancholia":
-    "melbourne bounce":
-    "mellow gold":
-    "melodic death metal":
-    "melodic hard rock":
-    "melodic hardcore":
-    "melodic metalcore":
-    "melodic power metal":
-    "melodic progressive metal":
-    "memphis blues":
-    "memphis hip hop":
-    "memphis soul":
-    "merengue":
-    "merengue urbano":
-    "merseybeat":
-    "metal":
-    "metal guitar":
-    "metalcore":
-    "metropopolis":
-    "mexican indie":
-    "mexican rock-and-roll":
-    "mexican son":
-    "mexican traditional":
-    "miami bass":
-    "michigan indie":
-    "microhouse":
-    "military band":
-    "minimal":
-    "minimal dub":
-    "minimal dubstep":
-    "minimal melodic techno":
-    "minimal tech house":
-    "minimal techno":
-    "minimal wave":
-    "mizrahi":
-    "mod revival":
-    "modern blues":
-    "modern classical":
-    "modern country rock":
-    "modern downshift":
-    "modern free jazz":
-    "modern performance":
-    "modern southern rock":
-    "modern uplift":
-    "monastic":
-    "moombahton":
-    "morna":
-    "motivation":
-    "motown":
-    "movie tunes":
-    "mpb":
-    "musica para ninos":
-    "musiikkia lapsille":
-    "musique concrete":
-    "musique pour enfants":
-    "muziek voor kinderen":
-    "nasheed":
-    "nashville sound":
-    "native american":
-    "necrogrind":
-    "neo classical metal":
-    "neo honky tonk":
-    "neo mellow":
-    "neo metal":
-    "neo soul":
-    "neo soul-jazz":
-    "neo-industrial rock":
-    "neo-pagan":
-    "neo-progressive":
-    "neo-psychedelic":
-    "neo-rockabilly":
-    "neo-singer-songwriter":
-    "neo-synthpop":
-    "neo-trad metal":
-    "neo-traditional country":
-    "neoclassical":
-    "neofolk":
-    "nepali":
-    "nerdcore":
-    "neue deutsche harte":
-    "neue deutsche welle":
-    "neurofunk":
-    "neurostep":
-    "new age":
-    "new age piano":
-    "new americana":
-    "new beat":
-    "new jack smooth":
-    "new jack swing":
-    "new orleans blues":
-    "new orleans jazz":
-    "new rave":
-    "new romantic":
-    "new tribe":
-    "new wave":
-    "new wave pop":
-    "new weird america":
-    "ninja":
-    "nintendocore":
-    "nl folk":
-    "no wave":
-    "noise":
-    "noise pop":
-    "noise punk":
-    "noise rock":
-    "nordic folk":
-    "nordic house":
-    "norteno":
-    "northern irish indie":
-    "northern soul":
-    "norwegian gospel":
-    "norwegian hip hop":
-    "norwegian jazz":
-    "norwegian metal":
-    "norwegian pop":
-    "norwegian punk":
-    "norwegian rock":
-    "nu age":
-    "nu disco":
-    "nu electro":
-    "nu gaze":
-    "nu jazz":
-    "nu metal":
-    "nu skool breaks":
-    "nu-cumbia":
-    "nueva cancion":
-    "nursery":
-    "nwobhm":
-    "nwothm":
-    "nz indie":
-    "oi":
-    "old school hip hop":
-    "old-time":
-    "opera":
-    "operatic pop":
-    "opm":
-    "oratory":
-    "orchestral":
-    "organic ambient":
-    "orgcore":
+    "indie fuzzpop": "p",
+    "indie pop": "p",
+    "indie pop rock": "ro",
+    "indie post-punk": "ro",
+    "indie psych-pop": "p",
+    "indie r&b": "rb",
+    "indie rock": "ro",
+    "indie shoegaze": "ro",
+    "indie singer-songwriter": "co",
+    "indietronica": "e",
+    "indonesian indie": "w",
+    "indonesian pop": "w",
+    "indorock": "w",
+    "industrial": "ro",
+    "industrial metal": "me",
+    "industrial rock": "ro",
+    "instrumental post rock": "ro",
+    "intelligent dance music": "e",
+    "irish folk": "w",
+    "irish indie": "w",
+    "irish rock": "w",
+    "iskelma": "w",
+    "islamic recitation": "w",
+    "israeli rock": "w",
+    "italian disco": "w",
+    "italian folk": "w",
+    "italian hip hop": "w",
+    "italian indie pop": "w",
+    "italian jazz": "w",
+    "italian pop": "w",
+    "italian pop rock": "w",
+    "italian progressive rock": "w",
+    "italian punk": "w",
+    "italo dance": "w",
+    "j-alt": "w", 
+    "j-ambient": "w",
+    "j-core": "w",
+    "j-dance": "w",
+    "j-idol": "w",
+    "j-indie": "w",
+    "j-metal": "w",
+    "j-pop": "w",
+    "j-poppunk": "w",
+    "j-poprock": "w",
+    "j-punk": "w",
+    "j-rap": "w",
+    "j-rock": "w",
+    "j-theme": "w",
+    "jam band": "ro",
+    "jangle pop": "p",
+    "jangle rock": "ro",
+    "japanese jazztronica": "w",
+    "japanese psychedelic": "w",
+    "japanese r&b": "w",
+    "japanese standards": "w",
+    "japanese traditional": "w",
+    "japanoise": "w",
+    "jazz": "j",
+    "jazz bass": "j",
+    "jazz blues": "j",
+    "jazz brass": "j",
+    "jazz christmas": "j",
+    "jazz funk": "j",
+    "jazz fusion": "j",
+    "jazz metal": "j",
+    "jazz orchestra": "j",
+    "jazz trio": "j",
+    "jerk": "h",
+    "jig and reel": "co",
+    "judaica": "w",
+    "jug band": "mi",
+    "juggalo": "h",
+    "jump blues": "mi",
+    "jump up": "e",
+    "jumpstyle": "e",
+    "jungle": "e",
+    "k-hop": "w",
+    "k-indie": "w",
+    "k-pop": "w",
+    "k-rock": "w",
+    "kabarett": "mi",
+    "karneval": "w",
+    "kc indie": "ro",
+    "kindermusik": "w",
+    "kirtan": "w",
+    "kiwi rock": "w",
+    "kizomba": "w",
+    "klapa": "w", 
+    "klezmer": "w",
+    "kompa": "w",
+    "kraut rock": "ro",
+    "kuduro": "w",
+    "kurdish folk": "w",
+    "kwaito": "w",
+    "la indie": "ro",
+    "laboratorio": "w",
+    "laiko": "w",
+    "latin": "w",
+    "latin alternative": "w",
+    "latin christian": "w",
+    "latin christmas": "w",
+    "latin electronica": "w",
+    "latin hip hop": "w",
+    "latin jazz": "w",
+    "latin metal": "w",
+    "latin pop": "w",
+    "latvian pop": "w",
+    "lds": "mi",
+    "leeds indie": "ro",
+    "levenslied": "w",
+    "liedermacher": "w",
+    "light music": "mi",
+    "lilith": "w",
+    "liquid funk": "rb",
+    "lithumania": "w",
+    "liturgical": "mi",
+    "lo star": "mi",
+    "lo-fi": "ro",
+    "louisiana blues": "mi",
+    "louisville indie": "ro",
+    "lounge": "p",
+    "lounge house": "e",
+    "lovers rock": "ro", 
+    "lowercase": "mi",
+    "luk thung": "w",
+    "madchester": "ro",
+    "maghreb": "w",
+    "magyar": "w",
+    "makossa": "w",
+    "malagasy folk": "w",
+    "malaysian pop": "w",
+    "mallet": "cl",
+    "mambo": "w",
+    "mande pop": "w",
+    "mandopop": "w",
+    "manele": "w",
+    "marching band": "mi",
+    "mariachi": "w",
+    "martial industrial": "ro",
+    "mashup": "mi",
+    "math pop": "p",
+    "math rock": "ro",
+    "mathcore": "ro",
+    "mbalax": "w",
+    "medieval": "cl",
+    "medieval rock": "ro",
+    "meditation": "mi",
+    "melancholia": "mi",
+    "melbourne bounce": "e",
+    "mellow gold": "ro",
+    "melodic death metal": "me",
+    "melodic hard rock": "ro",
+    "melodic hardcore": "ro",
+    "melodic metalcore": "me",
+    "melodic power metal": "me",
+    "melodic progressive metal": "me",
+    "memphis blues": "mi",
+    "memphis hip hop": "h",
+    "memphis soul": "rb",
+    "merengue": "w",
+    "merengue urbano": "w",
+    "merseybeat": "ro",
+    "metal": "me",
+    "metal guitar": "me",
+    "metalcore": "me",
+    "metropopolis": "ro",
+    "mexican indie": "w",
+    "mexican rock-and-roll": "w",
+    "mexican son": "w",
+    "mexican traditional": "w",
+    "miami bass": "mi",
+    "michigan indie": "ro",
+    "microhouse": "e",
+    "military band": "mi",
+    "minimal": "mi",
+    "minimal dub": "w",
+    "minimal dubstep": "e",
+    "minimal melodic techno": "e",
+    "minimal tech house": "e",
+    "minimal techno": "e",
+    "minimal wave": "ro",
+    "mizrahi": "w",
+    "mod revival": "ro",
+    "modern blues": "mi",
+    "modern classical": "cl",
+    "modern country rock": "ro",
+    "modern downshift": "ro",
+    "modern free jazz": "j",
+    "modern performance": "mi",
+    "modern southern rock": "ro",
+    "modern uplift": "mi",
+    "monastic": "cl",
+    "moombahton": "w",
+    "morna": "w",
+    "motivation": "mi",
+    "motown": "p",
+    "movie tunes": "p",
+    "mpb": "w",
+    "musica para ninos": "w",
+    "musiikkia lapsille": "w",
+    "musique concrete": "w",
+    "musique pour enfants": "w",
+    "muziek voor kinderen": "w",
+    "nasheed": "w",
+    "nashville sound": "co",
+    "native american": "w",
+    "necrogrind": "me",
+    "neo classical metal": "me",
+    "neo honky tonk": "co",
+    "neo mellow": "mi",
+    "neo metal": "me",
+    "neo soul": "rb",
+    "neo soul-jazz": "j",
+    "neo-industrial rock": "ro",
+    "neo-pagan": "me",
+    "neo-progressive": "ro",
+    "neo-psychedelic": "ro",
+    "neo-rockabilly": "ro",
+    "neo-singer-songwriter": "co",
+    "neo-synthpop": "p",
+    "neo-trad metal": "me",
+    "neo-traditional country": "co",
+    "neoclassical": "cl",
+    "neofolk": "co",
+    "nepali": "w",
+    "nerdcore": "mi",
+    "neue deutsche harte": "w",
+    "neue deutsche welle": "w",
+    "neurofunk": "e",
+    "neurostep": "e",
+    "new age": "mi",
+    "new age piano": "cl",
+    "new americana": "co",
+    "new beat": "e",
+    "new jack smooth": "p",
+    "new jack swing": "rb",
+    "new orleans blues": "mi",
+    "new orleans jazz": "j",
+    "new rave": "e",
+    "new romantic": "ro", 
+    "new tribe": "w",
+    "new wave": "ro",
+    "new wave pop": "p",
+    "new weird america": "ro",
+    "ninja": "w",
+    "nintendocore": "mi",
+    "nl folk": "w",
+    "no wave": "ro",
+    "noise": "ro",
+    "noise pop": "p",
+    "noise punk": "ro",
+    "noise rock": "ro",
+    "nordic folk": "w",
+    "nordic house": "w",
+    "norteno": "w",
+    "northern irish indie": "w",
+    "northern soul": "rb",
+    "norwegian gospel": "w",
+    "norwegian hip hop": "w",
+    "norwegian jazz": "w",
+    "norwegian metal": "w",
+    "norwegian pop": "w",
+    "norwegian punk": "w",
+    "norwegian rock": "w",
+    "nu age": "mi",
+    "nu disco": "e",
+    "nu electro": "e",
+    "nu gaze": "ro",
+    "nu jazz": "j",
+    "nu metal": "me",
+    "nu skool breaks": "e",
+    "nu-cumbia": "w",
+    "nueva cancion": "w",
+    "nursery": "mi",
+    "nwobhm": "me",
+    "nwothm": "me",
+    "nz indie": "ro",
+    "oi": "ro",
+    "old school hip hop": "h",
+    "old-time": "co", 
+    "opera": "cl",
+    "operatic pop": "p",
+    "opm": "w",
+    "oratory": "mi",
+    "orchestral": "cl",
+    "organic ambient": "mi",
+    "orgcore": "ro",
     "orquesta tipica":
     "orquesta tropical":
     "oshare kei":
