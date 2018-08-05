@@ -110,22 +110,22 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="#" data-toggle="modal" data-target="#playlistModal"><i class="fa fa-th-list fa-fw"></i> Select a Playlist</a>
+                            <a data-toggle="modal" data-target="#playlistModal"><i class="fa fa-th-list fa-fw"></i> Select a Playlist</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-dashboard fa-fw"></i> Most Recent Tracks</a>
+                            <a onclick="getRecentTracks()"><i class="fa fa-dashboard fa-fw"></i> Most Recent Tracks</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> My Top Tracks<span class="fa arrow"></span></a>
+                            <a><i class="fa fa-bar-chart-o fa-fw"></i> My Top Tracks<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Short-Term</a>
+                                    <a onclick="getTopTracks('short_term')">Short-Term</a>
                                 </li>
                                 <li>
-                                    <a href="#">Medium-Term</a>
+                                    <a onclick="getTopTracks('medium_term')">Medium-Term</a>
                                 </li>
                                 <li>
-                                    <a href="#">Long-Term</a>
+                                    <a onclick="getTopTracks('long_term')">Long-Term</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -270,6 +270,7 @@
         var topArtistsLong;
         var topArtistsMedium;
         var topArtistsShort;
+        var topTrackFlag = false;
     </script>
 
     <script>
@@ -348,20 +349,11 @@
     </script>
 
     <script id="playlist-template" type="text/x-handlebars-template">
-    <h2>Playlist info</h2>
-    <dl class="dl-horizontal">
-        <dt>Number of playlists</dt><dd>{{total}}</dd>
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Select a Playlist
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                {{#each items}}
-                <a class="dropdown-item" onclick="getTracks('{{this.tracks.href}}')">{{this.name}}</a>
-                {{/each}}
-            </div>
-        </div>
-    </dl>
+    <div class="list-group">
+        {{#each items}}
+        <a class="list-group-item list-group-item-action" onclick="getTracks('{{this.tracks.href}}')">{{this.name}}</li>
+        {{/each}}
+    </div>
     </script>
 
     <script id="tracks-template" type="text/x-handlebars-template">
@@ -405,7 +397,7 @@
 
         var playlistSource = document.getElementById('playlist-template').innerHTML,
             playlistTemplate = Handlebars.compile(playlistSource),
-            playlistPlaceholder = document.getElementById('playlist'); 
+            playlistPlaceholder = document.getElementById('playlist');
 
         var params = getHashParams();
 
@@ -443,6 +435,7 @@
                 },
                 success: function(response) {
                     playlistPlaceholder.innerHTML = playlistTemplate(response);
+                    console.log(response);
 
                     $('#login').hide();
                     $('#loggedin').show();
@@ -633,11 +626,19 @@
             var access_token = params.access_token,
                 refresh_token = params.refresh_token,
                 error = params.error;
+            
 
             var danceability = 0;
             var energy = 0;
             var valence = 0;
-            var getTrackUrl = 'https://api.spotify.com/v1/audio-features/'+items[i].track.id;
+            var trackElement = null;
+            if (topTrackFlag) {
+                trackElement = items[i];
+            }
+            else {
+                trackElement = items[i].track;
+            }
+            var getTrackUrl = 'https://api.spotify.com/v1/audio-features/'+trackElement.id;
 
             if (error) {
                 alert('There was an error during the authentication');
@@ -654,6 +655,8 @@
                             valence = response.valence;
                             energy = response.energy;
                             danceability = response.danceability;
+                            console.log(valence);
+                            console.log(energy);
 
                             $('#login').hide();
                             $('#loggedin').show();
@@ -666,13 +669,13 @@
                     $('#loggedin').hide();
                 }
             }
-            out = out + "<li class=\"list-group-item\"><h3>" + items[i].track.name + " - ";
+            out = out + "<li class=\"list-group-item\"><h3>" + trackElement.name + " - ";
             artistString = "";
-            for (var j=0; j < items[i].track.artists.length; j++) {
+            for (var j=0; j < trackElement.artists.length; j++) {
                 if (j > 0) {
                     artistString = artistString + ", ";
                 }
-                artistString = artistString + items[i].track.artists[j].name;
+                artistString = artistString + trackElement.artists[j].name;
             }
             out = out + artistString + "</h3>";
             out = out + "<h4 class=\"progress-label\">Valence</h4>";
@@ -691,51 +694,44 @@
             // Chart
             radiusSum = 10;
             for (var j = 0; j < topSongsLong.length; j++) {
-                if (topSongsLong[j].id == items[i].track.id) {
-                    radiusSum += 10 * (50 - j)/50;
-                    console.log(radiusSum);
+                if (topSongsLong[j].id == trackElement.id) {
                     break;
                 }
             }
             for (var j = 0; j < topSongsMedium.length; j++) {
-                if (topSongsMedium[j].id == items[i].track.id) {
+                if (topSongsMedium[j].id == trackElement.id) {
                     radiusSum += 10 * (50 - j)/50;
-                    console.log(radiusSum);
                     break;
                 }
             }
             for (var j = 0; j < topSongsShort.length; j++) {
-                if (topSongsShort[j].id == items[i].track.id) {
+                if (topSongsShort[j].id == trackElement.id) {
                     radiusSum += 10 * (50 - j)/50;
-                    console.log(radiusSum);
                     break;
                 }
             }
-            for (var j = 0; j < items[i].track.artists.length; j++) {
+            for (var j = 0; j < trackElement.artists.length; j++) {
                 for (var k = 0; k < topArtistsLong.length; k++) {
-                    if (topArtistsLong[k].id == items[i].track.artists[j].id) {
+                    if (topArtistsLong[k].id == trackElement.artists[j].id) {
                         radiusSum += 5 * (50 - k)/50;
-                        console.log(radiusSum);
                         break;
                     }
                 }
                 for (var k = 0; k < topArtistsMedium.length; k++) {
-                    if (topArtistsMedium[k].id == items[i].track.artists[j].id) {
+                    if (topArtistsMedium[k].id == trackElement.artists[j].id) {
                         radiusSum += 5 * (50 - k)/50;
-                        console.log(radiusSum);
                         break;
                     }
                 }
                 for (var k = 0; k < topArtistsShort.length; k++) {
-                    if (topArtistsShort[k].id == items[i].track.artists[j].id) {
+                    if (topArtistsShort[k].id == trackElement.artists[j].id) {
                         radiusSum += 5 * (50 - k)/50;
-                        console.log(radiusSum);
                         break;
                     }
                 }
             }
             coordinateData.push({x: (valence*20 - 10).toFixed(2), y: (energy*20 - 10).toFixed(2), r: radiusSum});
-            songs.push(items[i].track.name);
+            songs.push(trackElement.name);
             artists.push(artistString);
         }
 
@@ -771,10 +767,12 @@
             options: options
         });
 
-
+        topTrackFlag = false;
         return out;
     });
     
+
+
     function getTracks(tracksUrl) {
 
         /**
@@ -825,6 +823,125 @@
                 $('#loggedin').hide();
             }
         }
+    }
+
+
+    function getRecentTracks() {
+
+        /**
+        * Obtains parameters from the hash of the URL
+        * @return Object
+        */
+        function getHashParams() {
+            var hashParams = {};
+            var e, r = /([^&;=]+)=?([^&;]*)/g,
+                q = window.location.hash.substring(1);
+            while ( e = r.exec(q)) {
+                hashParams[e[1]] = decodeURIComponent(e[2]);
+            }
+            return hashParams;
+        }
+
+        var tracksSource = document.getElementById('tracks-template').innerHTML,
+            tracksTemplate = Handlebars.compile(tracksSource),
+            tracksPlaceholder = document.getElementById('tracks');   
+
+        var params = getHashParams();
+
+        var access_token = params.access_token,
+            refresh_token = params.refresh_token,
+            error = params.error;
+
+        if (error) {
+            alert('There was an error during the authentication');
+        } else {
+            if (access_token) {
+
+                $.ajax({
+                    url: "https://api.spotify.com/v1/me/player/recently-played",
+                    headers: {
+                        'Authorization': 'Bearer ' + access_token
+                    },
+                    data: {
+                        'limit': 50
+                    },
+                    success: function(response) {
+                        tracksPlaceholder.innerHTML = tracksTemplate(response);
+
+                        $('#login').hide();
+                        $('#loggedin').show();
+                    }
+                });
+            }
+            else {
+                // render initial screen
+                $('#login').show();
+                $('#loggedin').hide();
+            }
+        }
+    }
+
+
+    function getTopTracks(time_range) {
+
+        /**
+        * Obtains parameters from the hash of the URL
+        * @return Object
+        */
+        function getHashParams() {
+            var hashParams = {};
+            var e, r = /([^&;=]+)=?([^&;]*)/g,
+                q = window.location.hash.substring(1);
+            while ( e = r.exec(q)) {
+                hashParams[e[1]] = decodeURIComponent(e[2]);
+            }
+            return hashParams;
+        }
+
+        topTrackFlag = true;
+        var tracksSource = document.getElementById('tracks-template').innerHTML,
+            tracksTemplate = Handlebars.compile(tracksSource),
+            tracksPlaceholder = document.getElementById('tracks');   
+
+        var params = getHashParams();
+
+        var access_token = params.access_token,
+            refresh_token = params.refresh_token,
+            error = params.error;
+
+        if (error) {
+            alert('There was an error during the authentication');
+        } else {
+            if (access_token) {
+
+                $.ajax({
+                    url: 'https://api.spotify.com/v1/me/top/tracks',
+                    headers: {
+                        'Authorization': 'Bearer ' + access_token
+                    },
+                    data: {
+                        'limit': 50,
+                        'time_range': time_range
+                    },
+                    success: function(response) {
+                        console.log("YAY1");
+                        console.log(response);
+                        tracksPlaceholder.innerHTML = tracksTemplate(response);
+                        console.log("YAY2");
+
+                        $('#login').hide();
+                        $('#loggedin').show();
+                    }
+                });
+                console.log("HELLO");
+            }
+            else {
+                // render initial screen
+                $('#login').show();
+                $('#loggedin').hide();
+            }
+        }
+        
     }
     </script>
 
