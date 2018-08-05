@@ -41,6 +41,15 @@
 
 </head>
 
+<style>
+
+#tracklist {
+    max-height: 70vh;
+    overflow-y: scroll;
+}
+
+</style>
+
 <body>
 
     <div id="wrapper">
@@ -101,10 +110,25 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="#" data-toggle="modal" data-target="#playlistModal"><i class="fa fa-th-list fa-fw"></i> Select a Playlist</a>
                         </li>
                         <li>
-                            <a data-toggle="modal" data-target="#playlistModal"><i class="fa fa-dashboard fa-fw"></i> Select a Playlist</a>
+                            <a href="#"><i class="fa fa-dashboard fa-fw"></i> Most Recent Tracks</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> My Top Tracks<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">Short-Term</a>
+                                </li>
+                                <li>
+                                    <a href="#">Medium-Term</a>
+                                </li>
+                                <li>
+                                    <a href="#">Long-Term</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
                         </li>
                     </ul>
                 </div>
@@ -222,9 +246,15 @@
 
         <!-- Page Content -->
         <div id="page-wrapper">
-            
-            <canvas id="bubbleChart" width="400" height="400"></canvas>
-            <div id="tracks">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div id="chart-container">
+                        <canvas id="bubbleChart" height="315" width="400"></canvas>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div id="tracks"></div>
+                </div>
             </div>
         </div>
         <!-- /#page-wrapper -->
@@ -243,9 +273,8 @@
     </script>
 
     <script>
-        var ctx = document.getElementById("bubbleChart");
+        var canvas = document.getElementById("bubbleChart");
         var options = {
-            responsive: true,
             tooltips: {
                 callbacks: {
                     label: function(tooltipItem, data) {
@@ -283,7 +312,7 @@
                 }]
             }
         };
-        var bubbleChart = new Chart(ctx, {
+        var bubbleChart = new Chart(canvas, {
             type: 'bubble',
             options: options
         });
@@ -339,7 +368,7 @@
     <h2>Tracks info</h2>
     <dl class="dl-horizontal">
         <dt>Number of tracks</dt><dd>{{total}}</dd>
-        <ul class="list-group">
+        <ul class="list-group" id="tracklist">
             {{#printTracks items}}
             {{items}}
             {{/printTracks}}
