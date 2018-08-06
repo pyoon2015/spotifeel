@@ -59,7 +59,7 @@ var genres = {
     "argentine rock": "w",
     "armenian folk": "w",
     "art pop": "p",
-    "art rock": "r",
+    "art rock": "ro",
     "athens indie": "w",
     "atmospheric black metal": "me",
     "atmospheric post rock": "ro",
