@@ -259,7 +259,11 @@
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <div id="tracks"></div>
+                    <div id="tracks">
+                        <h2>Tracks info</h2>
+                        <dl id="track-total"></dl>
+                        <ul class="list-group" id="tracklist"></ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -277,6 +281,20 @@
         var topArtistsMedium;
         var topArtistsShort;
         var topTrackFlag = false;
+        var genreStringArray = ["p", "h", "e", "me", "ro", "rb", "co", "j", "w", "cl", "mi", "u"];
+        var genreLongStringArray = ["pop", "hip-hop", "electronic/dance", "metal", "rock", "r&b", "country/folk", "jazz", "world", "classical", "misc", "unknown"]
+        var genreColorArray =  ["rgba(242, 84, 91, 0.7)", // pop
+                                "rgba(60, 145, 230, 0.7)", // hip hop
+                                "rgba(206, 236, 151, 0.7)", // electronic
+                                "rgba(53, 53, 53, 0.7)", // metal
+                                "rgba(55, 147, 146, 0.7)", // rock
+                                "rgba(224, 186, 215, 0.7)", // rnb
+                                "rgba(250, 131, 52, 0.7)", // country/folk
+                                "rgba(78, 89, 140, 0.7)", // jazz
+                                "rgba(116, 79, 198, 0.7)", // world
+                                "rgba(141, 91, 76, 0.7)", // classical
+                                "rgba(192, 195, 206, 0.7)", // misc
+                                "rgba(255, 255, 255, 0.7)"] // unknown
     </script>
 
     <script>
@@ -285,8 +303,8 @@
             tooltips: {
                 callbacks: {
                     label: function(tooltipItem, data) {
-                        var song = data.songs[tooltipItem.index];
-                        var artist = data.artists[tooltipItem.index];
+                        var song = data.songs[tooltipItem.datasetIndex][tooltipItem.index];
+                        var artist = data.artists[tooltipItem.datasetIndex][tooltipItem.index];
                         rLabel = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].r;
                         return "\"" + song + "\" - " + artist + ': (' + tooltipItem.xLabel + ', ' + tooltipItem.yLabel + ', ' + parseFloat(rLabel.toFixed(2)).toString() + ')';
                     }
@@ -625,35 +643,14 @@
     });
 
 
-    Handlebars.registerHelper("printTracks", function(items) {
+    function printTracks(items) {
         var out = "";
-        var coordinateData = [];
-        var songs = [];
-        var artists = [];
+        var coordinateData = [[], [], [], [], [], [], [], [], [], [], [], []]; // each genre gets data
+        var songs = [[], [], [], [], [], [], [], [], [], [], [], []]; // each genre gets data
+        var artists = [[], [], [], [], [], [], [], [], [], [], [], []]; // each genre gets data
 
-        /* for (var i = 0; i < topSongsLong.length; i++) {
-            console.log(topSongsLong[i].name);
-        }
-        console.log("#")
-        for (var i = 0; i < topSongsMedium.length; i++) {
-            console.log(topSongsMedium[i].name);
-        }
-        console.log("#")
-        for (var i = 0; i < topSongsShort.length; i++) {
-            console.log(topSongsShort[i].name);
-        }
-        console.log("#")
-        for (var i = 0; i < topArtistsLong.length; i++) {
-            console.log(topArtistsLong[i].name);
-        }
-        console.log("#")
-        for (var i = 0; i < topArtistsMedium.length; i++) {
-            console.log(topArtistsMedium[i].name);
-        }
-        console.log("#")
-        for (var i = 0; i < topArtistsShort.length; i++) {
-            console.log(topArtistsShort[i].name);
-        }*/
+        // Clear all entries in Track Info list
+        document.getElementById('tracklist').innerHTML = "";
 
         for (var i=0, l=items.length; i<l; i++) {
 
@@ -723,7 +720,7 @@
                     $('#loggedin').hide();
                 }
             }
-            out = out + "<li class=\"list-group-item\"><h3>" + trackElement.name + " - ";
+            
             artistString = "";
             for (var j=0; j < trackElement.artists.length; j++) {
                 if (j > 0) {
@@ -731,19 +728,99 @@
                 }
                 artistString = artistString + trackElement.artists[j].name;
             }
-            out = out + artistString + "</h3>";
-            out = out + "<h4 class=\"progress-label\">Valence</h4>";
-            out = out + "<div class=\"progress\">";
-            out = out + "<div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: " + valence*100 + "%\" aria-valuenow=\"0\" aria-valuemax=\"100\">" + valence + "</div>";
-            out = out + "</div><br>";
-            out = out + "<h4 class=\"progress-label\">Energy</h4>";
-            out = out + "<div class=\"progress\">";
-            out = out + "<div class=\"progress-bar bg-info\" role=\"progressbar\" style=\"width: " + energy*100 + "%\" aria-valuenow=\"0\" aria-valuemax=\"100\">" + energy + "</div>";
-            out = out + "</div><br>";
-            out = out + "<h4 class=\"progress-label\">Danceability</h4>";
-            out = out + "<div class=\"progress\">";
-            out = out + "<div class=\"progress-bar bg-warning\" role=\"progressbar\" style=\"width: " + danceability*100 + "%\" aria-valuenow=\"0\" aria-valuemax=\"100\">" + danceability + "</div>";
-            out = out + "</div>";
+
+            
+            
+
+            // Create Number of Tracks
+            /*var subTitle = document.createElement("dt");
+            subTitle.innerHTML = "Number of tracks";
+            numTracks.appendChild(subTitle);
+            var numTracksNum = document.createElement("dd");
+            numTracksNum.innerHTML = */
+
+
+            // Create track entry
+            var track = document.createElement("li");
+            track.classList.add("list-group-item");
+
+            // Create track title
+            var trackTitle = document.createElement("h5");
+            trackTitle.innerHTML = trackElement.name + " - " + artistString;
+            track.appendChild(trackTitle);
+
+            // Create row 1
+            var row1 = document.createElement("div");
+            row1.classList.add("row");
+
+            // Create first column
+            var col1 = document.createElement("div");
+            col1.classList.add("col-sm-3");
+
+            // Create valence title
+            var valenceTitle = document.createElement("h6");
+            valenceTitle.classList.add("progress-label");
+            valenceTitle.innerHTML = "Valence";
+            col1.appendChild(valenceTitle);
+            row1.appendChild(col1);
+
+            // Create second column
+            var col2 = document.createElement("div");
+            col2.classList.add("col-sm-9");
+
+            // Create valence bar
+            var bigValenceBar = document.createElement("div");
+            bigValenceBar.classList.add("progress");
+            var valenceBar = document.createElement("div");
+            valenceBar.classList.add("progress-bar", "progress-bar-success");
+            valenceBar.setAttribute("role", "progressbar");
+            valenceBar.setAttribute("aria-valuenow", valence*100);
+            valenceBar.setAttribute("aria-valuemin", "0");
+            valenceBar.setAttribute("aria-valuemax", "100");
+            valenceBar.setAttribute("style", "width: " + valence*100 + "%; color:black;")
+            valenceBar.innerHTML = (valence*20 - 10).toFixed(2);
+            bigValenceBar.appendChild(valenceBar);
+            col2.appendChild(bigValenceBar);
+            row1.appendChild(col2);
+            track.append(row1);
+
+            // Create row 2
+            var row2 = document.createElement("div");
+            row2.classList.add("row");
+
+            // Create first column
+            col1 = document.createElement("div");
+            col1.classList.add("col-sm-3");
+
+            // Create energy title
+            var energyTitle = document.createElement("h6");
+            energyTitle.classList.add("progress-label");
+            energyTitle.innerHTML = "Energy";
+            col1.appendChild(energyTitle);
+            row2.appendChild(col1);
+
+            // Create second column
+            col2 = document.createElement("div");
+            col2.classList.add("col-sm-9");
+
+            // Create energy bar
+            var bigEnergyBar = document.createElement("div");
+            bigEnergyBar.classList.add("progress");
+            var energyBar = document.createElement("div");
+            energyBar.classList.add("progress-bar", "progress-bar-info");
+            energyBar.setAttribute("role", "progressbar");
+            energyBar.setAttribute("aria-valuenow", energy*100);
+            energyBar.setAttribute("aria-valuemin", "0");
+            energyBar.setAttribute("aria-valuemax", "100");
+            energyBar.setAttribute("style", "width: " + energy*100 + "%; color:black;")
+            energyBar.innerHTML = (energy*20 - 10).toFixed(2);
+            bigEnergyBar.appendChild(energyBar);
+            col2.appendChild(bigEnergyBar);
+            row2.appendChild(col2);
+            track.append(row2);
+
+            // Append track entry to list
+            document.getElementById('tracklist').appendChild(track);
 
             // Chart
             radiusSum = 5;
@@ -756,46 +833,48 @@
             // console.log(getArtistGenre(trackElement.artists));
             var trackGenre = getArtistGenre(trackElement.artists);
 
-            coordinateData.push({x: (valence*20 - 10).toFixed(2), y: (energy*20 - 10).toFixed(2), r: radiusSum});
-            songs.push(trackElement.name);
-            artists.push(artistString);
+            coordinateData[genreStringArray.indexOf(trackGenre)].push({x: (valence*20 - 10).toFixed(2), y: (energy*20 - 10).toFixed(2), r: radiusSum});
+            songs[genreStringArray.indexOf(trackGenre)].push(trackElement.name);
+            artists[genreStringArray.indexOf(trackGenre)].push(artistString);
         }
 
-        /*var genres;
-        $.getJSON("genres.json", function(data)
-        {
-            genres = JSON.parse(data);
-            var obj_str = JSON.stringify(obj, null, 2);
-
-            console.log(obj_str);
-
-            // ...
-        });
-        for (var i in genres) {
-            if (genres[i] != "cl" || genres[i] != "mi" || genres[i] != "w" || genres[i] != "co" || genres[i] != "e" || genres[i] != "h" || genres[i] != "j" || genres[i] != "p" || genres[i] != "rb" || genres[i] != "ro") {
-                console.log(i + " " + genres[i]);
+        genreDatasets = []
+        songDatasets = []
+        artistDatasets = []
+        // only display genres with at least one track
+        for (var i = 0; i < coordinateData.length; i++) {
+            if (coordinateData[i].length !== 0) {
+                var dataset = {
+                    label: genreLongStringArray[i],
+                    backgroundColor: genreColorArray[i],
+                    data: coordinateData[i]
+                };
+                genreDatasets.push(dataset);
+                songDatasets.push(songs[i]);
+                artistDatasets.push(artists[i]);
             }
-        }*/
+        }
 
         bubbleChart.destroy();
         var ctx = document.getElementById("bubbleChart");
         bubbleChart = new Chart(ctx, {
             type: 'bubble',
             data: {
-                songs: songs,
-                artists: artists,
-                datasets: [{
+                songs: songDatasets,
+                artists: artistDatasets,
+                /*datasets: [{
                     label: "First dataset",
                     backgroundColor: 'rgba(54, 221, 166, 0.7)',
                     data: coordinateData
-                }]
+                }]*/
+                datasets: genreDatasets
             },
             options: options
         });
 
         topTrackFlag = false;
         return out;
-    });
+    }
     
     function trackRadiusSum(trackId) {
         var trackRadiusSum = 0;
@@ -832,7 +911,6 @@
     }
 
     function getArtistGenre(artistsArray) {
-        var genreStringArray = ["p", "h", "e", "me", "ro", "rb", "co", "j", "w", "cl", "mi"];
         var genreTallyArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
         // TAKE ALL ARTISTS OR SOME ARTISTS?
@@ -871,11 +949,9 @@
                         },
                         success: function(response) {
 
-                            console.log(artistsArray[i].name);
                             for (var j = 0; j < response.genres.length; j++) {
                                 var macroGenre = genres[response.genres[j]];
                                 if (macroGenre !== undefined) {
-                                    console.log("EXISTS: " + response.genres[j]);
                                     var index = genreStringArray.indexOf(macroGenre);
                                     if (index !== -1) {
                                         genreTallyArray[index] += 1;
@@ -961,7 +1037,8 @@
                     },
                     success: function(response) {
 
-                        tracksPlaceholder.innerHTML = tracksTemplate(response);
+                        //tracksPlaceholder.innerHTML = tracksTemplate(response);
+                        printTracks(response.items);
 
                         $('#login').hide();
                         $('#loggedin').show();
@@ -1017,7 +1094,8 @@
                         'limit': 50
                     },
                     success: function(response) {
-                        tracksPlaceholder.innerHTML = tracksTemplate(response);
+                        // tracksPlaceholder.innerHTML = tracksTemplate(response);
+                        printTracks(response.items);
 
                         $('#login').hide();
                         $('#loggedin').show();
@@ -1075,7 +1153,8 @@
                         'time_range': time_range
                     },
                     success: function(response) {
-                        tracksPlaceholder.innerHTML = tracksTemplate(response);
+                        // tracksPlacetracksPlaceholder.innerHTML = tracksTemplate(response);
+                        printTracks(response.items);
 
                         $('#login').hide();
                         $('#loggedin').show();
