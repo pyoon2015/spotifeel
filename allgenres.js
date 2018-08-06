@@ -1453,7 +1453,7 @@ var genres = {
     "deep underground hip hop": "h", 
     "romantic era": "cl",
     "dwn trap": "h",
-    "drill": "h"
+    "drill": "h",
     "spanish rock": "w",
     "finnish dance pop": "w", 
     "argentine hip hop": "w",
@@ -1536,7 +1536,7 @@ var genres = {
     "instrumental rock": "ro", 
     "strut": "e",
     "venezuelan hip hop": "w",
-    "sufi": "w"
+    "sufi": "w",
     "early modern classical": "cl",
     "chinese indie": "w",
     "christian relaxative": "mi", 
@@ -1553,7 +1553,7 @@ var genres = {
     "deep cumbia sonidera": "w",
     "rap chileno": "w",
     "thai idol": "w",
-    "vapor pop": "p"
+    "vapor pop": "p",
     "indonesian hip hop": "w", 
     "edmonton indie": "ro",
     "trap mexicano": "w",
@@ -1898,7 +1898,7 @@ var genres = {
     "university choir": "cl",
     "persian neo-traditional": "w",
     "australian black metal": "me",
-    "vaudeville": "co"
+    "vaudeville": "co",
     "italian black metal": "w",
     "c64": "mi",
     "hindustani vocal": "w", 
