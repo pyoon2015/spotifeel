@@ -38,6 +38,9 @@
     <!-- Genres object element -->
     <script src="allgenres.js"></script>
 
+    <!-- Require.js -->
+    <script src="require.js"></script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -476,6 +479,35 @@
                         listGroup.appendChild(playlist);
                     }
 
+                    var nextLink = response.next;
+                    while (nextLink !== null) {
+                        $.ajax({
+                            async: false,
+                            url: nextLink,
+                            headers: {
+                                'Authorization': 'Bearer ' + access_token
+                            },
+                            success: function(response) {
+
+                                // Add playlists to Playlist Modal
+                                for (var i=0; i < response.items.length; i++) {
+                                    // Create playlist button
+                                    var playlist = document.createElement("a");
+                                    playlist.classList.add("list-group-item", "list-group-item-action");
+                                    playlist.setAttribute("data-dismiss", "modal");
+                                    playlist.setAttribute("onclick", "getTracks('" + response.items[i].tracks.href + "')");
+                                    playlist.innerHTML = response.items[i].name;
+
+                                    // Append playlist button to list-group
+                                    listGroup.appendChild(playlist);
+                                }
+
+                                nextLink = response.next;
+                            }
+                        });
+                    }
+                
+
                     // Add list-group to Playlist Modal
                     document.getElementById("playlist-table").appendChild(listGroup);
 
@@ -720,7 +752,7 @@
                     $('#loggedin').hide();
                 }
             }
-            
+
             artistString = "";
             for (var j=0; j < trackElement.artists.length; j++) {
                 if (j > 0) {
@@ -729,16 +761,60 @@
                 artistString = artistString + trackElement.artists[j].name;
             }
 
-            
-            
+            $.ajax({
+                async: false,
+                url: 'https://api.genius.com/search',
+                data: {
+                    'q': trackElement.name + " " + trackElement.artists[0].name,
+                    'access_token': '6ZqeA_eFKZtfgcpwsD41GOZllZB-Fgx7KgxXMDWg08za5GdJHH_B2ureIyunRlCm'
+                },
+                success: function(response) {
+                    song_info = null;
+                    for (var j=0; j < response.response.hits.length; j++) {
+                        if (response.response.hits[j].result.primary_artist.name.toLowerCase() === trackElement.artists[0].name.toLowerCase()) {
+                            console.log("FOUND MATCH");
+                            song_info = response.response.hits[j];
+                            break;
+                        }
+                    }
+                    if (song_info != null) {
+                        song_api_path = song_info.result.api_path;
+                        $.ajax({
+                            async: false,
+                            url: 'https://api.genius.com' + song_api_path,
+                            data: {
+                                'access_token': '6ZqeA_eFKZtfgcpwsD41GOZllZB-Fgx7KgxXMDWg08za5GdJHH_B2ureIyunRlCm'
+                            },
+                            success: function(response) {
+                                var path = response.response.song.path;
+                                console.log('https://genius.com' + path);
+                                $.ajax({
+                                    async: false,
+                                    url: 'https://genius.com' + path,
+                                    success: function(response) {
+                                        var span = document.createElement('span');
+                                        span.innerHTML = response;
+                                        var x = span.getElementsByClassName("lyrics");
+                                        console.log(x[0].textContent || x[0].innerText);
 
-            // Create Number of Tracks
-            /*var subTitle = document.createElement("dt");
-            subTitle.innerHTML = "Number of tracks";
-            numTracks.appendChild(subTitle);
-            var numTracksNum = document.createElement("dd");
-            numTracksNum.innerHTML = */
+                                        $('#login').hide();
+                                        $('#loggedin').show();
+                                    },
+                                    error: function(response) {
+                                        console.log(response);
+                                    }
+                                });
 
+                                $('#login').hide();
+                                $('#loggedin').show();
+                            }
+                        });
+                    }
+
+                    $('#login').hide();
+                    $('#loggedin').show();
+                }
+            });
 
             // Create track entry
             var track = document.createElement("li");
@@ -1038,7 +1114,24 @@
                     success: function(response) {
 
                         //tracksPlaceholder.innerHTML = tracksTemplate(response);
-                        printTracks(response.items);
+                        var allTracks = response.items;
+                        var nextLink = response.next;
+                        while (nextLink !== null) {
+                            $.ajax({
+                                async: false,
+                                url: nextLink,
+                                headers: {
+                                    'Authorization': 'Bearer ' + access_token
+                                },
+                                success: function(response) {
+
+                                    allTracks = allTracks.concat(response.items);
+                                    nextLink = response.next;
+                                    console.log(nextLink);
+                                }
+                            });
+                        }
+                        printTracks(allTracks);
 
                         $('#login').hide();
                         $('#loggedin').show();
