@@ -38,6 +38,9 @@
     <!-- Genres object element -->
     <script src="allgenres.js"></script>
 
+    <!-- NRC Word-Emotion Association Lexicon object element -->
+    <script src="nrc-emotion-lexicon-v0.92.js"></script>
+
     <!-- Require.js -->
     <script src="require.js"></script>
 
@@ -795,7 +798,43 @@
                                         var span = document.createElement('span');
                                         span.innerHTML = response;
                                         var x = span.getElementsByClassName("lyrics");
-                                        console.log(x[0].textContent || x[0].innerText);
+                                        var allWords = x[0].textContent || x[0].innerText;
+                                        //console.log(allWords);
+
+                                        allWords = allWords.replace(/\[.*?\]/gs, '');;
+                                        var tokens = allWords.match(/\b(\w+)\b/g);
+                                        //console.log(tokens);
+
+                                        
+                                        if (tokens !== null) {
+                                            var happyWords = 0;
+                                            var sadWords = 0;
+                                            var numWords = tokens.length;
+                                            for (var j = 0; j < tokens.length; j++) {
+                                                if (tokens[j].toLowerCase() in words) {
+                                                    if (words[tokens[j].toLowerCase()] < 0) {
+                                                        sadWords += 1;
+                                                    }
+                                                    else {
+                                                        happyWords += 1;
+                                                    }
+                                                }
+                                            }
+
+                                            var percentHappy = 0.5;
+                                            if (happyWords !== 0 || sadWords !== 0) {
+                                                percentHappy = happyWords / (happyWords + sadWords);
+                                            }
+                                            var percentEmotional = (happyWords + sadWords) / numWords;
+                                            var lyricalDensity = 1000 * numWords / trackElement.duration_ms;
+                                            console.log("percent happy: " + percentHappy);
+                                            console.log("lyrical density: " + lyricalDensity);
+
+                                            console.log(valence);
+                                            valence = lyricalDensity * percentEmotional * percentHappy + (1 - lyricalDensity * percentEmotional) * valence;
+                                            console.log(valence);
+                                        }
+
 
                                         $('#login').hide();
                                         $('#loggedin').show();

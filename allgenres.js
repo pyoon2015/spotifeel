@@ -1977,5 +1977,6 @@ var genres = {
     "classical bassoon": "cl",
     "wind quintet": "cl",
     "tanci": "w",
-    "classical string trio": "cl" 
+    "classical string trio": "cl",
+    "lgbtq+ hip hop": "h"
 };
